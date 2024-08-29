@@ -1,0 +1,69 @@
+﻿@model ST10369044Semerster2WebApp.Models.CustomerProfile
+
+@{
+    ViewData["Title"] = "ABC Retail Customer Form";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Upload Image Form -->
+    <div class="mb-4">
+        <h2>Upload Image</h2>
+        <form asp-action="UploadImage" method="post" enctype="multipart/form-data" class="form-group">
+            <div class="mb-3">
+                <label for="file" class="form-label">Select Image</label>
+                <input type="file" name="file" class="form-control" id="file" />
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Image</button>
+        </form>
+    </div>
+
+    <!-- Add Customer Profile Form -->
+    <div class="mb-4">
+        <h2>Add Customer Profile</h2>
+        <form asp-action="AddCustomerProfile" method="post" class="form-group">
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label">‎ </label>
+                <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="LastName" class="form-label">‎ </label>
+                <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">‎ </label>
+                <input asp-for="Email" class="form-control" placeholder="Email" type="email" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="PhoneNumber" class="form-label">‎ </label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+            </div>
+            <button type="submit" class="btn btn-success" >Add Profile</button>
+        </form>
+    </div>
+
+    <!-- Process Order Form -->
+    <div class="mb-4">
+        <h2>Process Order</h2>
+        <form asp-action="ProcessOrder" method="post" class="form-group">
+            <div class="mb-3">
+                <label for="orderId" class="form-label">‎ </label>
+                <input type="text" name="orderId" class="form-control" placeholder="Order ID" id="orderId" />
+            </div>
+            <button type="submit" class="btn btn-warning">Process Order</button>
+        </form>
+    </div>
+
+    <!-- Upload Contract Form -->
+    <div class="mb-4">
+        <h2>Upload Contract</h2>
+        <form asp-action="UploadContract" method="post" enctype="multipart/form-data" class="form-group">
+            <div class="mb-3">
+                <label for="contractFile" class="form-label">Select Contract</label>
+                <input type="file" name="file" class="form-control" id="contractFile" />
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Contract</button>
+        </form>
+    </div>
+</div>
