@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST10369044Semerster2WebApp", "ST10369044Semerster2WebApp.csproj", "{9257FAEA-8DA8-4868-8CCD-4DF0EB6F65CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ST10369044Semerster2WebApp", "ST10369044Semerster2WebApp.csproj", "{9257FAEA-8DA8-4868-8CCD-4DF0EB6F65CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST10369044FunctionApp", "..\ST10369044FunctionApp\ST10369044FunctionApp.csproj", "{4573F0CA-53F3-4BBD-A73F-DDC25FA629E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9257FAEA-8DA8-4868-8CCD-4DF0EB6F65CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9257FAEA-8DA8-4868-8CCD-4DF0EB6F65CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9257FAEA-8DA8-4868-8CCD-4DF0EB6F65CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4573F0CA-53F3-4BBD-A73F-DDC25FA629E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4573F0CA-53F3-4BBD-A73F-DDC25FA629E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4573F0CA-53F3-4BBD-A73F-DDC25FA629E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4573F0CA-53F3-4BBD-A73F-DDC25FA629E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

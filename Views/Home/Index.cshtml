@@ -1,10 +1,59 @@
-﻿@model ST10369044Semerster2WebApp.Models.CustomerProfile
-
-@{
+﻿@{
     ViewData["Title"] = "ABC Retail Customer Form";
 }
+@model ST10369044Semerster2WebApp.Models.CustomerProfile
+<div class="text-center">
+    <h1 class="display-4">Customer Form</h1>
+</div>
 
-<div class="container">
+<div class="text-center">
+    <h1 class="display-4">Customer Form</h1>
+</div>
+
+<form class="row g-3" asp-action="SubmitAllForms" method="post" enctype="multipart/form-data">
+    
+    <div class="col-md-6">
+        <label for="file" class="form-label">Upload Image</label>
+        <input type="file" name="ImageFile" class="form-control" id="file" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="FirstName" class="form-label">First Name</label>
+        <input type="text" name="FirstName" class="form-control" id="FirstName" placeholder="First Name" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="LastName" class="form-label">Last Name</label>
+        <input type="text" name="LastName" class="form-control" id="LastName" placeholder="Last Name" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" name="Email" class="form-control" id="Email" placeholder="Email" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="PhoneNumber" class="form-label">Phone Number</label>
+        <input type="text" name="PhoneNumber" class="form-control" id="PhoneNumber" placeholder="Phone Number" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="orderId" class="form-label">Order ID</label>
+        <input type="text" name="OrderId" class="form-control" id="orderId" placeholder="Order ID" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="contractFile" class="form-label">Upload Contract</label>
+        <input type="file" name="ContractFile" class="form-control" id="contractFile" />
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit All</button>
+    </div>
+</form>
+
+
+@* <div class="container">
     <h1>@ViewData["Title"]</h1>
 
     <!-- Upload Image Form -->
@@ -66,4 +115,4 @@
             <button type="submit" class="btn btn-primary">Upload Contract</button>
         </form>
     </div>
-</div>
+</div> *@

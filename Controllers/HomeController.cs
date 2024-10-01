@@ -25,42 +25,80 @@ namespace ST10369044Semerster2WebApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UploadImage(IFormFile file)
+        public async Task<IActionResult> SubmitAllForms(IFormFile ImageFile, IFormFile ContractFile, CustomerProfile profile, string OrderId)
         {
-            if (file != null)
+            // Handle Image Upload
+            if (ImageFile != null)
             {
-                using var stream = file.OpenReadStream();
-                await _blobService.UploadBlobAsync("product-images", file.FileName, stream);
+                using var stream = ImageFile.OpenReadStream();
+                await _blobService.UploadBlobAsync("product-images", ImageFile.FileName, stream);
             }
-            return RedirectToAction("Index");
-        }
 
-        [HttpPost]
-        public async Task<IActionResult> AddCustomerProfile(CustomerProfile profile)
-        {
+            // Handle Customer Profile
             if (ModelState.IsValid)
             {
                 await _tableService.AddEntityAsync(profile);
             }
-            return RedirectToAction("Index");
-        }
 
-        [HttpPost]
-        public async Task<IActionResult> ProcessOrder(string orderId)
-        {
-            await _queueService.SendMessageAsync("order-processing", $"Processing order {orderId}");
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> UploadContract(IFormFile file)
-        {
-            if (file != null)
+            // Handle Order Processing
+            if (!string.IsNullOrEmpty(OrderId))
             {
-                using var stream = file.OpenReadStream();
-                await _fileService.UploadFileAsync("contracts-logs", file.FileName, stream);
+                await _queueService.SendMessageAsync("order-processing", $"Processing order {OrderId}");
             }
+
+            // Handle Contract Upload
+            if (ContractFile != null)
+            {
+                using var stream = ContractFile.OpenReadStream();
+                await _fileService.UploadFileAsync("contracts-logs", ContractFile.FileName, stream);
+            }
+
             return RedirectToAction("Index");
+        }
+
+        //[HttpPost]
+        //public async Task<IActionResult> UploadImage(IFormFile file)
+        //{
+        //    if (file != null)
+        //    {
+        //        using var stream = file.OpenReadStream();
+        //        await _blobService.UploadBlobAsync("product-images", file.FileName, stream);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> AddCustomerProfile(CustomerProfile profile)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        await _tableService.AddEntityAsync(profile);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> ProcessOrder(string orderId)
+        //{
+        //    await _queueService.SendMessageAsync("order-processing", $"Processing order {orderId}");
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> UploadContract(IFormFile file)
+        //{
+        //    if (file != null)
+        //    {
+        //        using var stream = file.OpenReadStream();
+        //        await _fileService.UploadFileAsync("contracts-logs", file.FileName, stream);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
