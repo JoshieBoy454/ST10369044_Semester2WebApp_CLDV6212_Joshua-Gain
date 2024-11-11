@@ -13,7 +13,7 @@ namespace ST10369044Semerster2WebApp
 
             builder.Services.AddSingleton<BlobService>();
             builder.Services.AddSingleton<QueueService>();
-            builder.Services.AddSingleton<TableService>();
+            builder.Services.AddSingleton<CustomerServices>();
             builder.Services.AddSingleton<FileService>();
 
             var app = builder.Build();

@@ -13,11 +13,22 @@ namespace ST10369044Semerster2WebApp.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        public string? ConstractFilePath { get; set;}
+        public string? ImageFilePath { get; set; }
 
         public CustomerProfile()
         {
             PartitionKey = "CustomerProfile";
             RowKey = Guid.NewGuid().ToString();
+
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Email = string.Empty;
+            PhoneNumber = string.Empty;
+            ConstractFilePath = string.Empty;
+            ImageFilePath = string.Empty;
+
+
         }
     }
 }
