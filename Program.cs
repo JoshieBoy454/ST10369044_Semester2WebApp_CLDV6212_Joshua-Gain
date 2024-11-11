@@ -10,11 +10,12 @@ namespace ST10369044Semerster2WebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton<BlobService>();
-            builder.Services.AddSingleton<QueueService>();
-            builder.Services.AddSingleton<CustomerServices>();
-            builder.Services.AddSingleton<FileService>();
+            builder.Services.AddScoped<BlobService>();
+            builder.Services.AddScoped<QueueService>();
+            builder.Services.AddScoped<CustomerServices>();
+            builder.Services.AddScoped<FileService>();
 
             var app = builder.Build();
 
@@ -24,6 +25,8 @@ namespace ST10369044Semerster2WebApp
                 app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
             app.MapControllerRoute(

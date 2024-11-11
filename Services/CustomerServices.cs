@@ -19,9 +19,9 @@ namespace ST10369044Semerster2WebApp.Services
             var connectionstring = _configuration.GetConnectionString("DefaultConnection");
             var query = @"INSERT INTO CustomerProfile (FirstName, LastName, Email, PhoneNumber)
                 VALUES (@FirstName, @LastName, @Email, @PhoneNumber)";
-            using (SqlConnection conecection = new SqlConnection(connectionstring))
+            using (SqlConnection connection = new SqlConnection(connectionstring))
             {
-                SqlCommand command = new SqlCommand(query, conecection);
+                SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@FirstName", profile.FirstName);
                 command.Parameters.AddWithValue("@LastName", profile.LastName);
                 command.Parameters.AddWithValue("@Email", profile.Email);
